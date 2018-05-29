@@ -34,4 +34,4 @@ Controller interacts with model for any update or query. UI can be updated in tw
 
 ### Model View Presenter
 In MVC Activity (controller) was coupled with View. MVP takes care of this situation.
-It separates out Controller  in a different class (Presenter) out of the Activity making Activity only a View. This helps in Controller testable.
+It separates out Controller  in a different class (Presenter) out of the Activity making Activity only a View. This helps in making Controller testable.

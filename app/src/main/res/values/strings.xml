@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Lists Basic</string>
+    <string name="add_button">Add Item</string>
+    <string name="clear_button">Clear List</string>
 </resources>

@@ -11,14 +11,14 @@ public class ItemsFragment extends Fragment implements ItemsContract.View{
     private ItemsContract.Presenter itemsPresenter;
     private ItemsAdapter itemsAdapter;
 
-    @Override
-    public boolean isActive() {
-        return false;
+    public static ItemsFragment newInstance()
+    {
+        return new ItemsFragment();
     }
 
     @Override
-    public void setLoadingIndicator(boolean active) {
-
+    public boolean isActive() {
+        return false;
     }
 
     @Override

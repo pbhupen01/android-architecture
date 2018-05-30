@@ -14,4 +14,6 @@ public interface ItemsDataSource {
     void clearItems();
 
     void getItems(LoadItemsCallback callback);
+
+    void addNewItem();
 }

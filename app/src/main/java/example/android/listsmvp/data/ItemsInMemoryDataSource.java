@@ -31,4 +31,9 @@ public class ItemsInMemoryDataSource implements ItemsDataSource{
         List<Item> items = itemsList.getItems();
         callback.onItemsLoaded(items);
     }
+
+    @Override
+    public void addNewItem() {
+        itemsList.addItem();
+    }
 }

@@ -12,8 +12,6 @@ public interface ItemsContract {
 
         boolean isActive();
 
-        void setLoadingIndicator(boolean active);
-
         void showItems(List<Item> tasks);
 
         void showNoItems();
@@ -21,8 +19,6 @@ public interface ItemsContract {
     }
 
     interface Presenter extends BasePresenter {
-
-        void result(int requestCode, int resultCode);
 
         void addNewItem();
 

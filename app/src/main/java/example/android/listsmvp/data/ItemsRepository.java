@@ -24,4 +24,9 @@ public class ItemsRepository implements ItemsDataSource {
     public void getItems(LoadItemsCallback callback) {
         itemsDataSource.getItems(callback);
     }
+
+    @Override
+    public void addNewItem() {
+        itemsDataSource.addNewItem();
+    }
 }

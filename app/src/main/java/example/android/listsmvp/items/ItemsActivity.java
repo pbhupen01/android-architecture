@@ -8,11 +8,12 @@ import android.widget.ListView;
 
 import example.android.listsmvp.data.ItemsList;
 import example.android.listsmvp.R;
+import example.android.listsmvp.util.ActivityUtils;
 
 public class ItemsActivity extends AppCompatActivity {
 
     ArrayAdapter<String> adapter;
-    ItemsPresenter presenter;
+    ItemsPresenter itemsPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,24 +22,26 @@ public class ItemsActivity extends AppCompatActivity {
 
         ItemsFragment itemsFragment = (ItemsFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
 
+        if(itemsFragment == null)
+        {
+            itemsFragment = ItemsFragment.newInstance();
+            ActivityUtils.addFragmentToActivity( getSupportFragmentManager(), itemsFragment, R.id.contentFrame);
+        }
+
+        itemsPresenter = new ItemsPresenter(itemsFragment);
+
         ListView itemsListView = findViewById(R.id.items_list);
-        adapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, android.R.id.text1,
-                ItemsList.getInstance().getItems());
 
         itemsListView.setAdapter(adapter);
     }
 
     public void onAddButtonClick(View view)
     {
-        ItemsList.getInstance().addItem();
-        adapter.notifyDataSetChanged();
+        itemsPresenter.addNewItem();
     }
 
     public void onClearButtonClick(View view)
     {
-        ItemsList.getInstance().clear();
-        adapter.notifyDataSetChanged();
+        itemsPresenter.clearItems();
     }
-
 }
